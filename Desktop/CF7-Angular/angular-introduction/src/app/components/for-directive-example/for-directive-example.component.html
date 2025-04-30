@@ -1,1 +1,7 @@
-<p>for-directive-example works!</p>
+<h4>{{'@For'}} Directive Example</h4>
+
+<div class="d-flex flex-wrap text-nowrap gap-2">
+  @for (user of users; track user) {
+    <app-person-table [personInput] = 'user'></app-person-table>
+  }
+</div>

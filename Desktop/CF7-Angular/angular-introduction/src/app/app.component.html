@@ -4,12 +4,13 @@
       <a class="navbar-brand ms-3 cursor-pointer" role="button">CF7 - Angular Introduction</a>
     </nav>
     <div class="d-flex flex-row gap-2">
-      <div class="d-flex flex-column text-nowrap bg-light p-2">
+      <!-- <div class="d-flex flex-column text-nowrap bg-light p-2">
         <span role="button" routerLink="component-input-example">Component Input Example</span>
         <span role="button" routerLink="for-directive-example">{{"@for"}} Directive Example</span>
         <span role="button" routerLink="event-bind-example">Event Bind Example</span>
-      </div>
-      <span class="flex-grow-1 p-2 text-nowrap">
+      </div> -->
+      <app-list-group-menu class="text-nowrap w-25"></app-list-group-menu>
+      <span class="flex-grow-1 p-2 text-nowrap w-75">
         <router-outlet></router-outlet>
       </span>
     </div>

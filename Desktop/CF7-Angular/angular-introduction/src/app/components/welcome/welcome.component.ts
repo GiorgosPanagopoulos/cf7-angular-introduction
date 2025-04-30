@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
-  imports: [],
+  // imports: [],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css'
 })
 export class WelcomeComponent {
-
+  name = "Markos"
 }
