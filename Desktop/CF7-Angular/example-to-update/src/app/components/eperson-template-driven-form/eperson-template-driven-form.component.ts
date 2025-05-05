@@ -7,17 +7,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { EPerson } from 'src/app/shared/interfaces/person';
 
 @Component({
-  selector: 'app-eperson-template-driven-form',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-  ],
-  templateUrl: './eperson-template-driven-form.component.html',
-  styleUrl: './eperson-template-driven-form.component.css',
+    selector: 'app-eperson-template-driven-form',
+    imports: [
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+    ],
+    templateUrl: './eperson-template-driven-form.component.html',
+    styleUrl: './eperson-template-driven-form.component.css'
 })
 export class EpersonTemplateDrivenFormComponent implements AfterViewInit {
   @Output() person = new EventEmitter<EPerson>();

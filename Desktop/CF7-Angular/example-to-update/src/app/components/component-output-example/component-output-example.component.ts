@@ -10,11 +10,10 @@ import {
 } from '@angular/cdk/dialog';
 
 @Component({
-  selector: 'app-component-output-example',
-  standalone: true,
-  imports: [DialogModule, SimpleDatatableComponent],
-  templateUrl: './component-output-example.component.html',
-  styleUrl: './component-output-example.component.css',
+    selector: 'app-component-output-example',
+    imports: [DialogModule, SimpleDatatableComponent],
+    templateUrl: './component-output-example.component.html',
+    styleUrl: './component-output-example.component.css'
 })
 export class ComponentOutputExampleComponent {
   manyPerson = ManyPerson;
@@ -41,16 +40,15 @@ export class ComponentOutputExampleComponent {
 }
 
 @Component({
-  imports: [PersonTableComponent],
-  standalone: true,
-  template: `
+    imports: [PersonTableComponent],
+    template: `
     <app-person-table [person]="person"></app-person-table>
     <button class="btn btn-primary btn-sm" (click)="dialogRef.close()">
       Close
     </button>
   `,
-  styles: [
-    `
+    styles: [
+        `
       :host {
         display: block;
         background: #fff;
@@ -59,7 +57,7 @@ export class ComponentOutputExampleComponent {
         max-width: 500px;
       }
     `,
-  ],
+    ]
 })
 export class PersonDialogComponent {
   constructor(

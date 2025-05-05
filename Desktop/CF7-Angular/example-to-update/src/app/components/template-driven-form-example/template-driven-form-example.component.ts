@@ -5,15 +5,14 @@ import { PersonTableComponent } from '../person-table/person-table.component';
 import { SimpleDatatableComponent } from '../simple-datatable/simple-datatable.component';
 
 @Component({
-  selector: 'app-template-driven-form-example',
-  standalone: true,
-  imports: [
-    EpersonTemplateDrivenFormComponent,
-    PersonTableComponent,
-    SimpleDatatableComponent,
-  ],
-  templateUrl: './template-driven-form-example.component.html',
-  styleUrl: './template-driven-form-example.component.css',
+    selector: 'app-template-driven-form-example',
+    imports: [
+        EpersonTemplateDrivenFormComponent,
+        PersonTableComponent,
+        SimpleDatatableComponent,
+    ],
+    templateUrl: './template-driven-form-example.component.html',
+    styleUrl: './template-driven-form-example.component.css'
 })
 export class TemplateDrivenFormExampleComponent {
   currentPerson: EPerson;

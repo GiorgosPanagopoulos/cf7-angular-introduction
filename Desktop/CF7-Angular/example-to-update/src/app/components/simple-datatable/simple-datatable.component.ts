@@ -3,11 +3,10 @@ import { EPerson } from 'src/app/shared/interfaces/person';
 import { sortBy } from 'lodash-es';
 
 @Component({
-  selector: 'app-simple-datatable',
-  standalone: true,
-  imports: [],
-  templateUrl: './simple-datatable.component.html',
-  styleUrl: './simple-datatable.component.css',
+    selector: 'app-simple-datatable',
+    imports: [],
+    templateUrl: './simple-datatable.component.html',
+    styleUrl: './simple-datatable.component.css'
 })
 export class SimpleDatatableComponent {
   @Input() data: EPerson[];

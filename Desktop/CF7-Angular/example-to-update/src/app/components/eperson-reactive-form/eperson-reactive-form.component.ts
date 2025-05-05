@@ -12,17 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { EPerson } from 'src/app/shared/interfaces/person';
 
 @Component({
-  selector: 'app-eperson-reactive-form',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-  ],
-  templateUrl: './eperson-reactive-form.component.html',
-  styleUrl: './eperson-reactive-form.component.css',
+    selector: 'app-eperson-reactive-form',
+    imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+    ],
+    templateUrl: './eperson-reactive-form.component.html',
+    styleUrl: './eperson-reactive-form.component.css'
 })
 export class EpersonReactiveFormComponent {
   @Output() person = new EventEmitter<EPerson>();

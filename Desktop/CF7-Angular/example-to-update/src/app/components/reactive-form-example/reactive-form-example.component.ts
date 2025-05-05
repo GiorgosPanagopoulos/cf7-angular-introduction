@@ -5,15 +5,14 @@ import { SimpleDatatableComponent } from '../simple-datatable/simple-datatable.c
 import { EPerson } from 'src/app/shared/interfaces/person';
 
 @Component({
-  selector: 'app-reactive-form-example',
-  standalone: true,
-  imports: [
-    EpersonReactiveFormComponent,
-    PersonTableComponent,
-    SimpleDatatableComponent,
-  ],
-  templateUrl: './reactive-form-example.component.html',
-  styleUrl: './reactive-form-example.component.css',
+    selector: 'app-reactive-form-example',
+    imports: [
+        EpersonReactiveFormComponent,
+        PersonTableComponent,
+        SimpleDatatableComponent,
+    ],
+    templateUrl: './reactive-form-example.component.html',
+    styleUrl: './reactive-form-example.component.css'
 })
 export class ReactiveFormExampleComponent {
   currentPerson: EPerson;
