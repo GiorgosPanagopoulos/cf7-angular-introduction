@@ -20,7 +20,8 @@ import { EPerson } from 'src/app/shared/interfaces/person';
 })
 export class EpersonTemplateDrivenFormComponent implements AfterViewInit {
   @Output() person = new EventEmitter<EPerson>();
-  @ViewChild('form', { static: false }) form: NgForm;
+  @ViewChild('form', { static: false }) form!: NgForm;
+
   
   ngAfterViewInit(){
     setTimeout(() => {

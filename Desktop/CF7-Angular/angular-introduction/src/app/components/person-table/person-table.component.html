@@ -1,53 +1,61 @@
-<div>
-  <!-- <h1>From person table component</h1> -->
-  <!-- <table class="table table-bordered w-50">
-    <caption>Person Details</caption>
-    <tr>
-      <td class="fw-semibold text-end">First Name</td>
-      <td class="ps-2">{{person.givenName}}</td>
-    </tr>
-    <tr>
-      <td class="fw-semibold text-end">Last Name</td>
-      <td class="ps-2">{{person.surName}}</td>
-    </tr>
-    <tr>
-      <td class="fw-semibold text-end">Age</td>
-      <td class="ps-2">{{person.age}}</td>
-    </tr>
-    <tr>
-      <td class="fw-semibold text-end">Email</td>
-      <td class="ps-2">{{person.email}}</td>
-    </tr>
-  </table> -->
-  <table class="table table-bordered w-50">
-    <caption>Person Details</caption>
-    <tr>
-      <td class="fw-semibold text-end">First Name</td>
-      <td class="ps-2">{{personInput?.givenName}}</td>
-    </tr>
-    <tr>
-      <td class="fw-semibold text-end">Last Name</td>
-      <td class="ps-2">{{personInput?.surName}}</td>
-    </tr>
-    <tr>
-      <td class="fw-semibold text-end">Age</td>
-      <td class="ps-2">{{personInput?.age}}</td>
-    </tr>
-    <tr>
-      <td class="fw-semibold text-end">Email</td>
-      <td class="ps-2">{{personInput?.email}}</td>
-    </tr>
-    @if(isPerson()){
+@if (!personInput){
+  <div class="alert alert-danger text-center">No Person Details</div>
+} @else {
+  <div>
+    <!-- <h1>From person table component</h1> -->
+    <!-- <table class="table table-bordered w-50">
+      <caption>Person Details</caption>
       <tr>
-        <td class="fw-semibold text-end">Address</td>
-        <td class="ps-2">{{ addressOReducation }}</td>
+        <td class="fw-semibold text-end">First Name</td>
+        <td class="ps-2">{{person.givenName}}</td>
       </tr>
-    }
-    @if(isEPerson()){
       <tr>
-        <td class="fw-semibold text-end">Education</td>
-        <td class="ps-2">{{ addressOReducation }}</td>
+        <td class="fw-semibold text-end">Last Name</td>
+        <td class="ps-2">{{person.surName}}</td>
       </tr>
-    }
-  </table>
-</div>
+      <tr>
+        <td class="fw-semibold text-end">Age</td>
+        <td class="ps-2">{{person.age}}</td>
+      </tr>
+      <tr>
+        <td class="fw-semibold text-end">Email</td>
+        <td class="ps-2">{{person.email}}</td>
+      </tr>
+    </table> -->
+    <table class="table table-bordered w-50">
+      <caption>Person Details</caption>
+      <tr>
+        <td class="fw-semibold text-end">First Name</td>
+        <td class="ps-2">{{personInput!.givenName}}</td>
+      </tr>
+      <tr>
+        <td class="fw-semibold text-end">Last Name</td>
+        <td class="ps-2">{{personInput!.surName}}</td>
+      </tr>
+      <tr>
+        <td class="fw-semibold text-end">Age</td>
+        <td class="ps-2">{{personInput!.age}}</td>
+      </tr>
+      <tr>
+        <td class="fw-semibold text-end">Email</td>
+        <td class="ps-2">{{personInput!.email}}</td>
+      </tr>
+      <!-- <tr>
+        <td class="fw-semibold text-end">{{ (isPerson() && "Address") || "Education" }}</td>
+        <td class="ps-2">{{ addressOReducation }}</td>
+      </tr> -->
+      @if(isPerson()){
+        <tr>
+          <td class="fw-semibold text-end">Address</td>
+          <td class="ps-2">{{ addressOReducation }}</td>
+        </tr>
+      }
+      @if(isEPerson()){
+        <tr>
+          <td class="fw-semibold text-end">Education</td>
+          <td class="ps-2">{{ addressOReducation }}</td>
+        </tr>
+      }
+    </table>
+  </div>
+}
