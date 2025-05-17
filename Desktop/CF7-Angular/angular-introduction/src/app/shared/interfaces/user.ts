@@ -9,3 +9,14 @@ export interface User {
     road: string
   }
 }
+
+export interface Credentials {
+  username: string;
+  password: string
+}
+
+export interface LoggedInUser {
+  username: string,
+  email: string,
+  roles: [string]
+}

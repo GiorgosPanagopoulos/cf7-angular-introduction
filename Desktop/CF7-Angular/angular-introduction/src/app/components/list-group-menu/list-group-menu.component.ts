@@ -17,6 +17,7 @@ export class ListGroupMenuComponent {
     { text: 'Template Driven Form Example', linkName: 'template-driven-form-example'},
     { text: 'Reactive Form Example', linkName: 'reactive-form-example' },
     { text: 'HTTP Client Example', linkName: 'http-client-example'},
-    { text: 'User Registration Component', linkName: 'user-registration-example'}
+    { text: 'User Registration Component', linkName: 'user-registration-example'},
+    { text: "User Login", linkName:'login'}
   ]
 }

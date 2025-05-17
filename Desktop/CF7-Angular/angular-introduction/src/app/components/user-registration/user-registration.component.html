@@ -1,65 +1,105 @@
 <h4>User Registration Example</h4>
 
-<div class="d-flex flex-column mt-2 w-50">
-  <form class="d-flex flex-column">
-    <mat-form-field>
-      <mat-label>Username</mat-label>
-      <input matInput type="text">
-      <mat-error>Username is required</mat-error>
-    </mat-form-field>
+<!-- Έλεγχος κατάστασης εγγραφής -->
+<div *ngIf="registrationStatus().message === 'Not attempted yet'; else statusTemplate">
+  <div class="d-flex flex-column mt-2 w-50">
+    <form [formGroup]="form" class="d-flex flex-column">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="username" />
+        <mat-error *ngIf="form.get('username')?.invalid && form.get('username')?.touched">
+          Username is required
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>First Name</mat-label>
-      <input matInput type="text">
-      <mat-error>First Name is required</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+          First Name is required
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input matInput type="text">
-      <mat-error>Last Name is required</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="surname" />
+        <mat-error *ngIf="form.get('surname')?.invalid && form.get('surname')?.touched">
+          Last Name is required
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input type="text" matInput>
-      <mat-error>Email is missing or invalid</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="email" (blur)="checkDuplicateEmail()" />
+        <mat-error *ngIf="form.get('email')?.hasError('duplicateEmail')">
+          Email is already registered
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.invalid && form.get('email')?.touched && !form.get('email')?.hasError('duplicateEmail')">
+          Email is missing or invalid
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Area</mat-label>
-      <input type="text" matInput>
-    </mat-form-field>
+      <div class="d-flex gap-2" formGroupName="address">
+        <mat-form-field>
+          <mat-label>Area</mat-label>
+          <input type="text" matInput formControlName="area" />
+        </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Road</mat-label>
-      <input type="text" matInput>
-    </mat-form-field>
+        <mat-form-field>
+          <mat-label>Road</mat-label>
+          <input type="text" matInput formControlName="road" />
+        </mat-form-field>
+      </div>
 
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input type="password" matInput>
-      <mat-error>Password is missing or invalid</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+        <mat-error *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+          Password is missing or invalid
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Confirm Password</mat-label>
-      <input type="password" matInput>
-      <mat-error>Confirm Password is missing or invalid</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input type="password" matInput formControlName="confirmPassword" />
+        <mat-error *ngIf="form.get('confirmPassword')?.hasError('passwordMismatch')">
+          Passwords do not match
+        </mat-error>
+        <mat-error *ngIf="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched && !form.get('confirmPassword')?.hasError('passwordMismatch')">
+          Confirm Password is missing or invalid
+        </mat-error>
+      </mat-form-field>
 
-    <button
-      mat-flat-button
-      color="primary"
-    >Register
-    </button>
-  </form>
+      <button
+        mat-flat-button
+        color="primary"
+        [disabled]="form.invalid"
+        (click)="onSubmit()"
+      >
+        Register
+      </button>
+    </form>
+  </div>
 </div>
+
+<!-- Template για την εμφάνιση της κατάστασης μετά την προσπάθεια εγγραφής -->
+<ng-template #statusTemplate>
+  <div *ngIf="registrationStatus().success; else errorTemplate" class="alert alert-success mt-2 w-50">
+    <strong>Success:</strong> {{ registrationStatus().message }}
+  </div>
+</ng-template>
+
+<ng-template #errorTemplate>
+  <div class="alert alert-danger mt-2 w-50">
+    <strong>Error:</strong> {{ registrationStatus().message }}
+  </div>
+</ng-template>
 
 <button 
   mat-flat-button
   color="primary"
   class="mt-2"
+  (click)="registerAnother()"
 >
   Register Another User
 </button>
